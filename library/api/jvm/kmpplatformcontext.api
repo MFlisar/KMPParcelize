@@ -1,0 +1,12 @@
+public abstract interface annotation class com/michaelflisar/parcelize/IgnoredOnParcel : java/lang/annotation/Annotation {
+}
+
+public abstract interface class com/michaelflisar/parcelize/Parcelable {
+}
+
+public abstract interface annotation class com/michaelflisar/parcelize/Parcelize : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/michaelflisar/parcelize/RawValue : java/lang/annotation/Annotation {
+}
+
