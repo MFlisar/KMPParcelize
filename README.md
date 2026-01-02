@@ -26,6 +26,8 @@ expect annotation class RawValue
 ```
 <!-- endSnippet -->
 
+The actual implementations for android looks as following:
+
 <!-- snippet: Parcelize2 -->
 ```kt
 package com.michaelflisar.parcelize
