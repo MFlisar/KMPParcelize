@@ -9,6 +9,11 @@ Following is provided inside the `com.michaelflisar.parcelize` package:
 <-- snippet: Parcelize -->
 <-- endSnippet -->
 
+And following is what it is mapped to on android:
+
+<-- snippet: Parcelize2 -->
+<-- endSnippet -->
+
 # :information_source: Table of Contents
 
 - [Supported Platforms](#computer-supported-platforms)

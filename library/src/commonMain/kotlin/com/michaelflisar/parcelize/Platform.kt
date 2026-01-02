@@ -1,3 +1,5 @@
+// begin-snippet: Parcelize
+
 package com.michaelflisar.parcelize
 
 expect interface Parcelable
@@ -14,5 +16,4 @@ expect annotation class IgnoredOnParcel()
 @Retention(AnnotationRetention.BINARY)
 expect annotation class RawValue
 
-
-
+// end-snippet

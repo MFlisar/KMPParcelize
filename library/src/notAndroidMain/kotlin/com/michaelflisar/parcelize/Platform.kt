@@ -1,7 +1,5 @@
 package com.michaelflisar.parcelize
 
-// begin-snippet: Parcelize
-
 actual interface Parcelable
 
 @Target(AnnotationTarget.CLASS)
@@ -15,5 +13,3 @@ actual annotation class IgnoredOnParcel
 @Target(AnnotationTarget.TYPE)
 @Retention(AnnotationRetention.BINARY)
 actual annotation class RawValue
-
-// end-snippet
