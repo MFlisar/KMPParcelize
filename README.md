@@ -6,11 +6,8 @@ This library provides `parcelize` annotations that can be used inside `commonMai
 
 Following is provided inside the `com.michaelflisar.parcelize` package:
 
-snippet: Parcelize
-
-And following is what it is mapped on android:
-
-snippet: Parcelize2
+<-- snippet: Parcelize -->
+<-- endSnippet -->
 
 # :information_source: Table of Contents
 
