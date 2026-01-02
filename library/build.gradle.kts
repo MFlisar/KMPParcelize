@@ -1,7 +1,9 @@
-import com.michaelflisar.kmplibrary.BuildFilePlugin
-import com.michaelflisar.kmplibrary.setupDependencies
-import com.michaelflisar.kmplibrary.Target
+import com.michaelflisar.kmplibrary.BuildFileUtil
 import com.michaelflisar.kmplibrary.Targets
+import com.michaelflisar.kmplibrary.core.Platform
+import com.michaelflisar.kmplibrary.core.configs.Config
+import com.michaelflisar.kmplibrary.core.configs.LibraryConfig
+import com.michaelflisar.kmplibrary.setups.AndroidLibrarySetup
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -9,17 +11,13 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.dokka)
     alias(libs.plugins.gradle.maven.publish.plugin)
+    alias(libs.plugins.binary.compatibility.validator)
     alias(deps.plugins.kmplibrary.buildplugin)
 }
-
-// get build file plugin
-val buildFilePlugin = project.plugins.getPlugin(BuildFilePlugin::class.java)
 
 // -------------------
 // Informations
 // -------------------
-
-val androidNamespace = "com.michaelflisar.parcelize"
 
 val buildTargets = Targets(
     // mobile
@@ -31,6 +29,13 @@ val buildTargets = Targets(
     // web
     wasm = true
 )
+val androidSetup = AndroidLibrarySetup(
+    compileSdk = app.versions.compileSdk,
+    minSdk = app.versions.minSdk
+)
+
+val config = Config.read(rootProject)
+val libraryConfig = LibraryConfig.read(rootProject)
 
 // -------------------
 // Setup
@@ -38,55 +43,48 @@ val buildTargets = Targets(
 
 kotlin {
 
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+
     //-------------
     // Targets
     //-------------
 
-    buildFilePlugin.setupTargetsLibrary(buildTargets)
+    buildTargets.setupTargetsLibrary(project, config, libraryConfig, androidSetup)
 
     // -------
     // Sources
     // -------
 
-    kotlin {
+    sourceSets {
 
-        compilerOptions {
-            freeCompilerArgs.add("-Xexpect-actual-classes")
+        // ---------------------
+        // custom source sets
+        // ---------------------
+
+        val notAndroidMain by creating { dependsOn(commonMain.get()) }
+
+        buildTargets.setupDependencies(notAndroidMain, sourceSets, buildTargets, listOf(Platform.ANDROID), platformsNotSupported = true)
+
+        // ---------------------
+        // dependencies
+        // ---------------------
+
+        commonMain.dependencies {
+            implementation(deps.kotlinx.coroutines.core)
         }
 
-        sourceSets {
-
-            // ---------------------
-            // custom source sets
-            // ---------------------
-
-            val nonAndroidMain by creating { dependsOn(commonMain.get()) }
-
-            nonAndroidMain.setupDependencies(sourceSets, buildTargets, listOf(Target.ANDROID), targetsNotSupported = true)
-
-            // ---------------------
-            // dependencies
-            // ---------------------
-
-            // --
+        androidMain.dependencies {
+            implementation(libs.androidx.core)
         }
     }
 }
 
 // -------------------
-// Configurations
+// Publish
 // -------------------
 
-// android configuration
-android {
-    buildFilePlugin.setupAndroidLibrary(
-        androidNamespace = androidNamespace,
-        compileSdk = app.versions.compileSdk,
-        minSdk = app.versions.minSdk,
-        buildConfig = false
-    )
-}
-
 // maven publish configuration
-if (buildFilePlugin.checkGradleProperty("publishToMaven") != false)
-    buildFilePlugin.setupMavenPublish()
+if (BuildFileUtil.checkGradleProperty(project, "publishToMaven") != false)
+    BuildFileUtil.setupMavenPublish(project, config, libraryConfig)

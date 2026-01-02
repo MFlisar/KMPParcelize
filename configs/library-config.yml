@@ -1,0 +1,24 @@
+# Github Library
+github:
+  name: KMPParcelize
+  release: 2025
+  namespace: com.michaelflisar.parcelize
+  license:
+    name: Apache License 2.0
+    path: blob/main/LICENSE
+  other-libraries: https://github.com/MFlisar/MyLibraries
+
+# Maven
+maven:
+  group-id: io.github.mflisar.kmpparcelize
+  primary-artifact-id: library # used to detect latest release version of the library (dynamically on the published homepage)
+
+# Modules - list of modules [name, artifact-id, description, path, exclude-from-docs (optional)]
+modules:
+  - name: Library
+    artifact-id: library
+    description: This provides parcelize classes and annotations compatible with kmp multiplatform
+    path: library
+
+# XCFrameworks [name, path, targets (ios, macos)]
+xcframeworks: []
