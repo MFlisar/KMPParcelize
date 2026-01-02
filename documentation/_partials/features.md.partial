@@ -2,6 +2,8 @@ Following is provided inside the `com.michaelflisar.parcelize` package:
 
 snippet: Parcelize
 
+The actual implementations for android looks as following:
+
 snippet: Parcelize2
 
 
