@@ -43,8 +43,9 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 
 - [Supported Platforms](#computer-supported-platforms)
 - [Setup](#wrench-setup)
-- [Usage](#page_facing_up-usage)
+- [Usage](#rocket-usage)
 - [Other Libraries](#bulb-other-libraries)
+- [API Documentation](#books-api-documentation)
 
 # :computer: Supported Platforms
 
@@ -96,9 +97,13 @@ implementation(libs.library)
 
 </details>
 
-# :page_facing_up: Usage
+# :rocket: Usage
 
 Simple use the provided annotations instead of the one from `androidx` and you are done.
+
+# :books: API Documentation
+
+Check out the [API documentation](https://MFlisar.github.io/KMPParcelize/).
 
 # :bulb: Other Libraries
 
