@@ -1,9 +1,10 @@
-import com.michaelflisar.kmplibrary.BuildFileUtil
-import com.michaelflisar.kmplibrary.Targets
-import com.michaelflisar.kmplibrary.core.Platform
-import com.michaelflisar.kmplibrary.core.configs.Config
-import com.michaelflisar.kmplibrary.core.configs.LibraryConfig
-import com.michaelflisar.kmplibrary.setups.AndroidLibrarySetup
+import com.michaelflisar.kmpdevtools.BuildFileUtil
+import com.michaelflisar.kmpdevtools.Targets
+import com.michaelflisar.kmpdevtools.config.LibraryModuleData
+import com.michaelflisar.kmpdevtools.config.sub.AndroidLibraryConfig
+import com.michaelflisar.kmpdevtools.core.Platform
+import com.michaelflisar.kmpdevtools.core.configs.Config
+import com.michaelflisar.kmpdevtools.core.configs.LibraryConfig
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -12,12 +13,15 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.gradle.maven.publish.plugin)
     alias(libs.plugins.binary.compatibility.validator)
-    alias(deps.plugins.kmplibrary.buildplugin)
+    alias(deps.plugins.kmpdevtools.buildplugin)
 }
 
-// -------------------
-// Informations
-// -------------------
+// ------------------------
+// Setup
+// ------------------------
+
+val config = Config.read(rootProject)
+val libraryConfig = LibraryConfig.read(rootProject)
 
 val buildTargets = Targets(
     // mobile
@@ -29,17 +33,22 @@ val buildTargets = Targets(
     // web
     wasm = true
 )
-val androidSetup = AndroidLibrarySetup(
+
+val androidConfig = AndroidLibraryConfig(
     compileSdk = app.versions.compileSdk,
     minSdk = app.versions.minSdk
 )
 
-val config = Config.read(rootProject)
-val libraryConfig = LibraryConfig.read(rootProject)
+val libraryModuleData = LibraryModuleData(
+    project = project,
+    config = config,
+    libraryConfig = libraryConfig,
+    androidConfig = androidConfig
+)
 
-// -------------------
-// Setup
-// -------------------
+// ------------------------
+// Kotlin
+// ------------------------
 
 kotlin {
 
@@ -51,7 +60,7 @@ kotlin {
     // Targets
     //-------------
 
-    buildTargets.setupTargetsLibrary(project, config, libraryConfig, androidSetup)
+    buildTargets.setupTargetsLibrary(libraryModuleData)
 
     // -------
     // Sources
