@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    dokka(project(":kmpparcelize:library"))
+    dokka(project(":kmpparcelize"))
 }
 
 dokka {
