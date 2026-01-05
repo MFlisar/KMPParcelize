@@ -44,8 +44,8 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 - [Supported Platforms](#computer-supported-platforms)
 - [Setup](#wrench-setup)
 - [Usage](#rocket-usage)
-- [Other Libraries](#bulb-other-libraries)
 - [API Documentation](#books-api-documentation)
+- [Other Libraries](#bulb-other-libraries)
 
 # :computer: Supported Platforms
 
@@ -107,4 +107,4 @@ Check out the [API documentation](https://MFlisar.github.io/KMPParcelize/).
 
 # :bulb: Other Libraries
 
-You can find more libraries (all multiplatform) of mine that all do work together nicely [here](https://github.com/MFlisar/MyLibraries).
+You can find more libraries (all multiplatform) of mine that all do work together nicely [here](https://mflisar.github.io/Libraries/).
