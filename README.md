@@ -6,11 +6,38 @@ This library provides `parcelize` annotations that can be used inside `commonMai
 
 Following is provided inside the `com.michaelflisar.parcelize` package:
 
-snippet: Parcelize
+<!-- snippet: Parcelize -->
+```kt
+package com.michaelflisar.parcelize
+
+expect interface Parcelable
+
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.BINARY)
+expect annotation class Parcelize()
+
+@Target(AnnotationTarget.PROPERTY)
+@Retention(AnnotationRetention.SOURCE)
+expect annotation class IgnoredOnParcel()
+
+@Target(AnnotationTarget.TYPE)
+@Retention(AnnotationRetention.BINARY)
+expect annotation class RawValue
+```
+<!-- endSnippet -->
 
 The actual implementations for android looks as following:
 
-snippet: Parcelize2
+<!-- snippet: Parcelize2 -->
+```kt
+package com.michaelflisar.parcelize
+
+actual typealias Parcelable = android.os.Parcelable
+actual typealias Parcelize = kotlinx.parcelize.Parcelize
+actual typealias IgnoredOnParcel = kotlinx.parcelize.IgnoredOnParcel
+actual typealias RawValue = kotlinx.parcelize.RawValue
+```
+<!-- endSnippet -->
 
 # :information_source: Table of Contents
 
