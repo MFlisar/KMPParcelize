@@ -35,7 +35,7 @@ pluginManagement {
 
 plugins {
     // version catalogue does not work here!
-    id("io.github.mflisar.kmpdevtools.plugins-settings-gradle") version "6.0.3" //apply false
+    id("io.github.mflisar.kmpdevtools.plugins-settings-gradle") version "6.2.1" //apply false
 }
 
 // --------------
@@ -68,6 +68,3 @@ include(":dokka")
 // --------------
 
 // no app
-
-// developer tools (for local tasks only)
-include(":tooling")

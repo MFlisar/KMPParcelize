@@ -1,3 +1,5 @@
+This library provides `parcelize` annotations that can be used inside `commonMain` source sets.
+
 Following is provided inside the `com.michaelflisar.parcelize` package:
 
 snippet: Parcelize
