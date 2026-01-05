@@ -6,38 +6,11 @@ This library provides `parcelize` annotations that can be used inside `commonMai
 
 Following is provided inside the `com.michaelflisar.parcelize` package:
 
-<!-- snippet: Parcelize -->
-```kt
-package com.michaelflisar.parcelize
-
-expect interface Parcelable
-
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.BINARY)
-expect annotation class Parcelize()
-
-@Target(AnnotationTarget.PROPERTY)
-@Retention(AnnotationRetention.SOURCE)
-expect annotation class IgnoredOnParcel()
-
-@Target(AnnotationTarget.TYPE)
-@Retention(AnnotationRetention.BINARY)
-expect annotation class RawValue
-```
-<!-- endSnippet -->
+snippet: Parcelize
 
 The actual implementations for android looks as following:
 
-<!-- snippet: Parcelize2 -->
-```kt
-package com.michaelflisar.parcelize
-
-actual typealias Parcelable = android.os.Parcelable
-actual typealias Parcelize = kotlinx.parcelize.Parcelize
-actual typealias IgnoredOnParcel = kotlinx.parcelize.IgnoredOnParcel
-actual typealias RawValue = kotlinx.parcelize.RawValue
-```
-<!-- endSnippet -->
+snippet: Parcelize2
 
 # :information_source: Table of Contents
 
@@ -55,23 +28,7 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 
 # :wrench: Setup
 
-<details>
-
-<summary>Dependencies</summary>
-
-<br>
-
-Simply add the dependencies inside your **build.gradle.kts** file.
-
-```kotlin
-val kmpparcelize = "<LATEST-VERSION>"
-
-implementation("io.github.mflisar.kmpparcelize:library:${kmpparcelize}")
-```
-
-</details>
-
-<details>
+<details open>
 
 <summary>Version Catalogue</summary>
 
@@ -91,8 +48,24 @@ library = { module = "io.github.mflisar.kmpparcelize:library", version.ref = "km
 
 And then use the definitions in your projects **build.gradle.kts** file like following:
 
-```shell
+```java
 implementation(libs.library)
+```
+
+</details>
+
+<details>
+
+<summary>Dependencies</summary>
+
+<br>
+
+Simply add the dependencies inside your **build.gradle.kts** file.
+
+```kotlin
+val kmpparcelize = "<LATEST-VERSION>"
+
+implementation("io.github.mflisar.kmpparcelize:library:${kmpparcelize}")
 ```
 
 </details>

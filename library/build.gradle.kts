@@ -81,7 +81,7 @@ kotlin {
         // ---------------------
 
         commonMain.dependencies {
-            implementation(deps.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.coroutines.core)
         }
 
         androidMain.dependencies {
