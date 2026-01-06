@@ -1,6 +1,6 @@
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.mflisar.kmpparcelize/library?style=for-the-badge&color=blue)](https://central.sonatype.com/artifact/io.github.mflisar.kmpparcelize/library) ![API](https://img.shields.io/badge/api-23%2B-brightgreen.svg?style=for-the-badge) ![Kotlin](https://img.shields.io/github/languages/top/MFlisar/KMPParcelize.svg?style=for-the-badge&amp;color=blueviolet) ![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin_Multiplatform-blue?style=for-the-badge&amp;label=Kotlin) [![License](https://img.shields.io/github/license/MFlisar/KMPParcelize?style=for-the-badge)](https://github.com/MFlisar/KMPParcelize/blob/main/LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.mflisar.kmpparcelize/library?style=for-the-badge&color=blue)](https://central.sonatype.com/artifact/io.github.mflisar.kmpparcelize/library) ![API](https://img.shields.io/badge/api-23%2B-brightgreen.svg?style=for-the-badge) ![Kotlin](https://img.shields.io/github/languages/top/MFlisar/KMPParcelize.svg?style=for-the-badge&amp;color=blueviolet) ![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin_Multiplatform-blue?style=for-the-badge&amp;label=Kotlin)
 # KMPParcelize
-![Android](https://img.shields.io/badge/android-3DDC84?style=for-the-badge) ![iOS](https://img.shields.io/badge/ios-A2AAAD?style=for-the-badge) ![Windows](https://img.shields.io/badge/windows-5382A1?style=for-the-badge) ![macOS](https://img.shields.io/badge/macos-B0B0B0?style=for-the-badge) ![WebAssembly](https://img.shields.io/badge/wasm-624DE7?style=for-the-badge)
+![Platforms](https://img.shields.io/badge/PLATFORMS-black?style=for-the-badge) ![Android](https://img.shields.io/badge/android-3DDC84?style=for-the-badge) ![iOS](https://img.shields.io/badge/ios-A2AAAD?style=for-the-badge) ![Windows](https://img.shields.io/badge/windows-5382A1?style=for-the-badge) ![macOS](https://img.shields.io/badge/macos-B0B0B0?style=for-the-badge) ![WebAssembly](https://img.shields.io/badge/wasm-624DE7?style=for-the-badge)
 
 This library provides `parcelize` annotations that can be used inside `commonMain` source sets.
 
@@ -39,25 +39,25 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 ```
 <!-- endSnippet -->
 
-# :information_source: Table of Contents
+# Table of Contents
 
 - [Supported Platforms](#computer-supported-platforms)
 - [Setup](#wrench-setup)
 - [Usage](#rocket-usage)
-- [API Documentation](#books-api-documentation)
+- [API](#books-api)
 - [Other Libraries](#bulb-other-libraries)
 
 # :computer: Supported Platforms
 
 | Module | android | iOS | windows | macOS | wasm |
 |---|---|---|---|---|---|
-| Library | ✅ | ✅ | ✅ | ✅ | ✅ |
+| library | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 # :wrench: Setup
 
 <details open>
 
-<summary>Version Catalogue</summary>
+<summary><b>Using Version Catalogs</b></summary>
 
 <br>
 
@@ -83,7 +83,7 @@ implementation(libs.library)
 
 <details>
 
-<summary>Dependencies</summary>
+<summary><b>Direct Dependency Notation</b></summary>
 
 <br>
 
@@ -101,7 +101,7 @@ implementation("io.github.mflisar.kmpparcelize:library:${kmpparcelize}")
 
 Simple use the provided annotations instead of the one from `androidx` and you are done.
 
-# :books: API Documentation
+# :books: API
 
 Check out the [API documentation](https://MFlisar.github.io/KMPParcelize/).
 
