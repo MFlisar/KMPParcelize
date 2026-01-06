@@ -12,12 +12,11 @@ maven:
   group-id: io.github.mflisar.kmpparcelize
   primary-artifact-id: library # used to detect latest release version of the library (dynamically on the published homepage)
 
-# Modules - list of modules [name, artifact-id, description, path, exclude-from-docs (optional)]
+# Modules - list of modules [artifact-id, description, path]
 modules:
-  - name: Library
-    artifact-id: library
+  - artifact-id: library
     description: This provides parcelize classes and annotations compatible with kmp multiplatform
-    path: library
+    path: library/library
 
 # XCFrameworks [name, path, targets (ios, macos)]
 xcframeworks: []
