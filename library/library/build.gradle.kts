@@ -89,7 +89,7 @@ kotlin {
         // ---------------------
 
         commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.jetbrains.kotlin.parcelize.runtime)
         }
 
         androidMain.dependencies {
