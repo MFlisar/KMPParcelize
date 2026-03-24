@@ -80,7 +80,7 @@ kotlin {
 
         val notAndroidMain by creating { dependsOn(commonMain.get()) }
 
-        buildTargets.setupDependencies(notAndroidMain, sourceSets, buildTargets, listOf(Platform.ANDROID), platformsNotSupported = true)
+        buildTargets.setupDependencies(notAndroidMain, sourceSets, listOf(Platform.ANDROID), platformsNotSupported = true)
 
         // ---------------------
         // dependencies
