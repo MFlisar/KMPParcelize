@@ -2,7 +2,6 @@
 github:
   name: KMPParcelize
   release: 2025
-  namespace: com.michaelflisar.parcelize
   license:
     name: Apache License 2.0
     path: blob/main/LICENSE

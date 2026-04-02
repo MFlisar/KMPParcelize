@@ -42,7 +42,6 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 # Table of Contents
 
 - [Supported Platforms](#computer-supported-platforms)
-- [Versions](#arrow_right-versions)
 - [Setup](#wrench-setup)
 - [Usage](#rocket-usage)
 - [API](#books-api)
@@ -53,14 +52,6 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 | Module | android | iOS | windows | macOS | wasm |
 |---|---|---|---|---|---|
 | library | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-# :arrow_right: Versions
-
-| Dependency | Version |
-|---|---|
-| Kotlin | `2.3.20` |
-| Jetbrains Compose | `1.10.3` |
-| Jetbrains Compose Material3 | `1.9.0` |
 
 # :wrench: Setup
 
@@ -79,13 +70,13 @@ kmpparcelize = "<LATEST-VERSION>"
 
 [libraries]
 
-kmpparcelize-library = { module = "io.github.mflisar.kmpparcelize:library", version.ref = "kmpparcelize" }
+library = { module = "io.github.mflisar.kmpparcelize:library", version.ref = "kmpparcelize" }
 ```
 
 And then use the definitions in your projects **build.gradle.kts** file like following:
 
 ```java
-implementation(libs.kmpparcelize.library)
+implementation(libs.library)
 ```
 
 </details>
