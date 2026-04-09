@@ -50,9 +50,9 @@ actual typealias RawValue = kotlinx.parcelize.RawValue
 
 # :computer: Supported Platforms
 
-| Module | android | iOS | windows | macOS | wasm |
-|---|---|---|---|---|---|
-| library | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Module | android | iOS | windows | macOS | wasm | Notes |
+|---|---|---|---|---|---|---|
+| library | ✅ | ✅ | ✅ | ✅ | ✅ | This provides parcelize classes and annotations compatible with kmp multiplatform |
 
 # :arrow_right: Versions
 
