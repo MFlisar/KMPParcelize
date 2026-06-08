@@ -77,7 +77,7 @@ kotlin {
 
         val notAndroidMain by creating { dependsOn(commonMain.get()) }
 
-        setupDependencies(buildTargets, sourceSets) {
+        setupDependencies(module, buildTargets, sourceSets) {
 
             notAndroidMain supportedBy !Platform.ANDROID
 
